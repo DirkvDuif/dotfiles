@@ -1,20 +1,29 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/milly/.oh-my-zsh"
+export ZSH="/Users/dirkvduivenbooden/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -63,17 +72,22 @@ ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="${HOME}/.dotfiles/.oh-my-zsh/custom"
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws)
+plugins=(
+	zsh-autosuggestions
+	web-search
+	themes
+	z
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # User configuration
 
@@ -81,11 +95,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-export EDITOR="code --wait"
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -101,36 +110,40 @@ export LANG=en_US.UTF-8
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
+#
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="cd ~/.oh-my-zsh"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshsettings="open ~/.zshrc"
+alias brewins="arch -x86_64 brew install"
+alias brewre="arch -x86_64 brew reinstall"
+alias reloc="cd Documents/projecten/"
+alias runios="npx react-native run-ios"
+alias runioscache="npx react-native run-ios -- --reset-cache"
+alias eslint="npm run lint -- --fix"
+alias runandroid="yarn react-native run-android"
+alias slink="ln -s ~/Documents/projecten/docker"
+alias home="cd"
+alias projects="home && cd Documents/projecten"
+alias downloads="home && cd Downloads"
+alias vim='nvim'
+alias ls="exa -l --all --ignore-glob="node_modules""
+alias add="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py save"
+alias load="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py load"
+alias list="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py list"
+alias remove="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py remove"
+alias autoclicker="python3 /Users/dirkvduivenbooden/Documents/projecten/autoclicker/main.py"
+alias sudo="sudo "
+export ANDROID_HOME=$HOME/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/milly/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/milly/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/milly/opt/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/milly/opt/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+export JAVA_HOME=`/usr/libexec/java_home -v 11.0.11`
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/milly/.nvm/versions/node/v12.22.6/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/milly/.nvm/versions/node/v12.22.6/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/milly/.nvm/versions/node/v12.22.6/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/milly/.nvm/versions/node/v12.22.6/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/milly/.nvm/versions/node/v12.22.6/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/milly/.nvm/versions/node/v12.22.6/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
