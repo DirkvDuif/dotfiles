@@ -1,6 +1,11 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [user]
+	name = DirkvDuif
 	email = dirkvanduivenbooden@outlook.com
-	name = Dirk van Duivenbooden
 [core]
 	excludesfile = /Users/dirkvduivenbooden/.gitignore_global
 [difftool "sourcetree"]
@@ -9,10 +14,3 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/dirkvduivenbooden/.stCommitMsg
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f

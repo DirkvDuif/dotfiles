@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -128,22 +128,22 @@ alias projects="home && cd Documents/projecten"
 alias downloads="home && cd Downloads"
 alias vim='nvim'
 alias ls="exa -l --all --ignore-glob="node_modules""
-alias add="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py save"
-alias load="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py load"
-alias list="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py list"
-alias remove="python3 /Users/dirkvduivenbooden/Documents/projecten/clipboard/main.py remove"
-alias autoclicker="python3 /Users/dirkvduivenbooden/Documents/projecten/autoclicker/main.py"
 alias sudo="sudo "
-export ANDROID_HOME=$HOME/Android/sdk
+alias clean="sh ~/documents/clean.sh"
+export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export JAVA_HOME=`/usr/libexec/java_home -v 11.0.11`
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/dirkvduivenbooden/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"

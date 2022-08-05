@@ -148,3 +148,23 @@ brew "ruby-build"
 # Uncategorised
 brew "wimlib"
 cask "sketch"
+brew "cocoapods"
+brew "coreutils"
+brew "exa"
+brew "n"
+brew "node"
+brew "nvm"
+brew "openssl@3"
+brew "typescript"
+brew "zsh-syntax-highlighting"
+cask "1password", args: { appdir: "/Applications" }
+cask "fig"
+cask "grammarly-desktop"
+cask "karabiner-elements"
+cask "notion"
+cask "postman"
+cask "rectangle"
+cask "sketch", args: { appdir: "/Applications" }
+cask "vagrant", args: { appdir: "/Applications" }
+cask "whatsapp", args: { appdir: "/Applications" }
+cask "zeplin", args: { appdir: "/Applications" }
