@@ -1,5 +1,5 @@
 # Set working directory
-cd $HOME/.dotfiles
+cd $HOME/projecten/dotfiles/
 
 # merge files that exist in dotfiles repo dir with latest versions
 rsync \
