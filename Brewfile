@@ -1,6 +1,7 @@
 cask_args appdir: "/Applications"
 
 # Tap Homebrew
+tap "codecrafters-io/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -216,6 +217,9 @@ cask "slack"
 cask "steam"
 cask "warp"
 cask "wireshark", args: { appdir: "/Applications" }
+brew "codecrafters-io/tap/codecrafters"
+cask "microsoft-auto-update"
+mas "Bitwarden", id: 1352778147
 vscode "1yib.rust-bundle"
 vscode "2gua.rainbow-brackets"
 vscode "aaron-bond.better-comments"

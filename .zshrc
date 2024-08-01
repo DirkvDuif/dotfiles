@@ -7,6 +7,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home"
+PATH="${JAVA_HOME}/bin:${PATH}"
+M2_HOME="/Users/dirkvanduivenbooden/Downloads/apache-maven-3.9.8"
+PATH="${M2_HOME}/bin:${PATH}"
+
+export PATH
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
